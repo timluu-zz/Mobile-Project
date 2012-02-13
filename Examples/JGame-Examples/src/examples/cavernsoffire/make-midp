@@ -1,0 +1,43 @@
+#Please call from the jgame main directory
+
+rm -R classes-examples-tmp
+mkdir classes-examples-tmp
+rm -R classes-examples
+mkdir classes-examples
+
+echo Using WTK_HOME=${WTK_HOME}
+
+PREVERIFY=${WTK_HOME}/bin/preverify
+CLDCAPI=${WTK_HOME}/lib/cldcapi11.jar
+MIDPAPI=${WTK_HOME}/lib/midpapi20.jar
+
+APPNAME=CavernsOfFireMidlet
+MANIFESTNAME=examples/cavernsoffire/manifest_midp
+
+javac -bootclasspath ${CLDCAPI}:${MIDPAPI} -source 1.3 -target 1.3 -classpath classes-midp examples/cavernsoffire/CavernsOfFire.java -d classes-examples-tmp
+
+${PREVERIFY} -classpath ${CLDCAPI}:${MIDPAPI}:classes-midp -d classes-examples  classes-examples-tmp
+
+cp examples/cavernsoffire/media-midp.tbl classes-examples/examples/cavernsoffire
+cp examples/cavernsoffire/cavetile*.jpg classes-examples/examples/cavernsoffire/
+
+cp examples/cavernsoffire/tomatogames-mobile-splash-2-120-dither-crop.png classes-examples/examples/cavernsoffire/
+#cp examples/cavernsoffire/cavernsoffire-intro.png classes-examples/examples/cavernsoffire/
+cp examples/cavernsoffire/crosshairs.png classes-examples/examples/cavernsoffire/
+cp examples/cavernsoffire/firecavernsprites.png classes-examples/examples/cavernsoffire/
+cp examples/cavernsoffire/ballbullet-tr.png classes-examples/examples/cavernsoffire/
+cp examples/cavernsoffire/cavewalls.png classes-examples/examples/cavernsoffire/
+
+cp examples/cavernsoffire/explo18k.wav classes-examples/examples/cavernsoffire/
+cp examples/cavernsoffire/exploatari2-8k.wav classes-examples/examples/cavernsoffire/
+#cp examples/cavernsoffire/exploatari2b-22k.wav classes-examples/examples/cavernsoffire/
+cp examples/cavernsoffire/signal2-8k.wav classes-examples/examples/cavernsoffire/
+
+echo "Jaring preverified class files..."
+jar cmf ${MANIFESTNAME} ${APPNAME}.jar -C classes-examples examples -C classes-midp jgame
+
+echo "Update MIDlet-Jar-Size in jad..."
+
+stat -c '%s' ${APPNAME}.jar | xargs echo 'MIDlet-Jar-Size:' | \
+        cat ${MANIFESTNAME} /dev/stdin >${APPNAME}.jad
+

@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Call this script from the jgame root directory.
+
+# app parameters
+
+echo Using ANDROID_HOME=${ANDROID_HOME}
+
+# destination directories
+JARNAME=CavernsOfFire
+DESTDIR=classes-android
+APPPATH=examples/cavernsoffire
+
+rm -R ${DESTDIR}
+mkdir ${DESTDIR}
+mkdir -p ${DESTDIR}/src/${APPPATH}
+mkdir -p ${DESTDIR}/assets
+
+cp -R src-base/* ${DESTDIR}/src
+cp -R src-android/* ${DESTDIR}
+
+cp -R ${APPPATH}/res ${DESTDIR}/
+cp ${APPPATH}/*.java ${DESTDIR}/src/${APPPATH}
+cp ${APPPATH}/AndroidManifest.xml ${DESTDIR}/
+cp ${APPPATH}/build.properties ${DESTDIR}/
+
+cp ${APPPATH}/*.tbl ${DESTDIR}/assets
+cp ${APPPATH}/*.gif ${DESTDIR}/assets
+cp ${APPPATH}/*.png ${DESTDIR}/assets
+cp ${APPPATH}/*.jpg ${DESTDIR}/assets
+cp ${APPPATH}/*.wav ${DESTDIR}/assets
+
+cd classes-android
+
+#"android-4" = android 1.6
+#"android-7" = android 2.1
+${ANDROID_HOME}/tools/android update project --name ${JARNAME} --target "android-7" --path .
+
+ant release

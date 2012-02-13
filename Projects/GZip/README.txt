@@ -1,0 +1,1 @@
+﻿GZip thư viện dùng để nén dữ liệu trong J2ME.

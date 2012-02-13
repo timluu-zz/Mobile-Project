@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Call this script from the jgame root directory.
+
+# app parameters
+
+JARNAME=CavernsOfFire
+MANIFESTNAME=examples/cavernsoffire/manifest_jre
+APPPATH=examples/cavernsoffire
+MAINCLASS=examples.cavernsoffire.CavernsOfFire
+# destination directories
+
+DESTDIR=classes-examples
+
+rm -R ${DESTDIR}
+mkdir ${DESTDIR}
+
+cp -R classes-jre/jgame ${DESTDIR}
+
+echo "Compiling ..."
+
+javac -source 1.3 -target 1.3 -classpath ${DESTDIR} \
+	${APPPATH}/*.java -d ${DESTDIR}
+
+cp ${APPPATH}/*.tbl ${DESTDIR}/${APPPATH}
+cp ${APPPATH}/*.png ${DESTDIR}/${APPPATH}
+cp ${APPPATH}/*.gif ${DESTDIR}/${APPPATH}
+cp ${APPPATH}/*.jpg ${DESTDIR}/${APPPATH}
+cp ${APPPATH}/*.wav ${DESTDIR}/${APPPATH}
+
+# jar
+
+jar cmf ${MANIFESTNAME} ${JARNAME}.jar -C ${DESTDIR} ${APPPATH} \
+	-C ${DESTDIR} jgame
+
+
