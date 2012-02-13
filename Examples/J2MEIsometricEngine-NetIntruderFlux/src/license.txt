@@ -1,0 +1,20 @@
+ITALIAN ------------
+Il codice sorgente di questo gioco viene distribuito sotto la licenza "GPL" di cui trovate il testo sulla pagina http://www.gnu.org/licenses/gpl.html
+IsoJ2ME e' distribuita sotto "LGPL". Vedere http://www.gnu.org/licenses/lgpl.html per maggiori informazioni.
+
+La grafica e' invece sotto la licenza Creative Commons Attribuzione - Non Commerciale - Condividi allo stesso modo 2.5 (Italy).
+Trovate maggiori informazioni su http://www.creativecommons.it
+
+Autore del gioco: Massimo Avvisati dw@mondonerd.com
+Informazioni sugli autori della grafica su http://www.mondonerd.com
+
+ENGLISH ------------
+Source code is distribuited under "GPL" License. Read http://www.gnu.org/licenses/gpl.html for more details.
+IsoJ2ME is distribuited under "LGPL" License. Read http://www.gnu.org/licenses/lgpl.html for more information.
+
+
+Graphic files are covered by Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Italy.
+More information at http://www.creativecommons.org
+
+Author of the Game: Massimo Avvisati dw@mondonerd.com
+Information about artists at http://www.mondonerd.com

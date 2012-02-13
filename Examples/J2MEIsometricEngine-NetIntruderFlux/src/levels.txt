@@ -1,0 +1,38 @@
+0:s:7:20:
+0:d:3:800
+100:t:7:19:Segui le mie istruzioni Per uscire premi *!
+100:t:10:17:In alto vedi il tempo che ti rimane prima che ti becchino...
+0:t:7:11:Premi i tasti che si illuminano per collezionare USER e PASS che vedi nella rete
+100:t:7:12:Premi ...
+100:t:6:11:Trova le password. Questa tecnica si chiama sniffing.
+0:t:7:15:Per spiare una connessione ed ottenere i dati riservati vai sulla pedana e premi 0
+100:p:7:10:Premi i tasti che si illuminano per collezionare USER e PASS che vedi nella rete
+0:t:7:7:dopo avere intercettato le password puoi spostare i blocchi di memoria per costruire un ponte
+100:t:13:14:Questa pedana resetta il livello e rimette i blocchi al loro posto.
+1:s:2:2:
+1:d:4:700
+1:w:5:3:Buffer Overflow - Spostare i carichi di memoria per sovraccaricare un sistema
+1:p:8:6:0 e spierai la rete!
+2:s:6:15:
+2:d:5:700
+100:t:6:8:Hai ancora tempo credo. Ma datti da fare!
+2:p:5:0:
+3:s:3:3:
+3:d:4:650
+3:p:7:2:Push 0!
+4:s:2:3
+4:d:6:650
+4:p:3:9
+5:s:13:13
+5:d:3:650
+5:p:22:0
+5:t:5:5:Ricorda sempre di cambiare regolarmente le password del tuo computer.
+6:s:10:14
+6:d:2:750
+6:p:17:3
+7:s:13:7
+7:d:1:600
+7:p:1:5
+8:s:11:7
+8:p:12:4
+8:d:2:800

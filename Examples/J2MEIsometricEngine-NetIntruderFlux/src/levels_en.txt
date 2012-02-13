@@ -1,0 +1,38 @@
+0:s:7:20:
+0:d:3:700
+0:t:7:19:Follow my instructions... *!
+0:t:10:17:On the top of the screen you can see remaining time...
+0:t:7:15:You must go to the server gateway on top of this level
+0:t:7:12:Push 1 when you see enlighted a string containing PASS, push 3 when it contains USER...
+0:t:6:11:Read packages on the net... This is called 'sniffing'.
+0:t:7:11:To spy the net go on the pad and push 0
+0:p:7:10:...
+0:t:7:7:After 'sniffing' the net you'll have privileges to move memory blocks and push them to build a bridge.
+0:t:13:14:This pad reset the level.
+1:s:2:2:
+1:d:4:680
+1:t:5:3:Buffer Overflow - Moving memory loads you can halt a system or control it...
+1:p:8:6:Push 0 to spy the net
+2:s:6:15:
+2:d:5:660
+2:t:6:8:You have time... but hurry up!
+2:p:5:0:
+3:s:3:3:
+3:d:4:630
+3:p:7:2:Push 0!
+4:s:2:3
+4:d:6:630
+4:p:3:9
+5:s:13:13
+5:d:3:600
+5:p:22:0
+5:t:5:5:Remind to change your password often...
+6:s:10:14
+6:d:2:600
+6:p:17:3
+7:s:13:7
+7:d:1:500
+7:p:1:5
+8:s:11:7
+8:p:12:4
+8:d:2:400
