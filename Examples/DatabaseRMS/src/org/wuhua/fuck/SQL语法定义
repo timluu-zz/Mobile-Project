@@ -1,0 +1,27 @@
+定义SQL的语法
+1.建表
+create table name add column1, column2 -- 系统奖默认给你加上ID
+delete table name;
+暂时支持这两个语法
+
+2.添加数据
+insert name column1,.. values value1, value2..
+
+
+
+最近做些项目发现要大量的应用rms的操作。感觉sun提供的rms操作API实在不是很方便。对数据的CRUD很麻烦。为此，我想在rms的基础上实现一个小型数据引擎是个不错的注意。我暂时把这个数据引擎叫做
+Figo。中文名称叫做飞鸽。
+我的引擎能做的事情是：
+1。对表格的操作－－添加，删除，暂时不提供对表格的修改。
+2。对表格数据的操作－－添加，删除，修改，查询（只能对一个关键字进行查询）
+
+下面来看下我的SQL语句。
+因为是一个简单而且小型的数据库。所以我把sql也简化了。下面是个完整的操作方法
+1。添加表格
+create table_name  column_1 column_2 column_3 ......
+drop table_name
+
+2。对数据的操作
+insert table_name column_1 .....   对于这个操作，然后具体在api调用setString（index， value）
+update table_name set ..... where column_1 = key;
+select table_name f_id=1;
