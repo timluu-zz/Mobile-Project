@@ -1,3 +1,3 @@
 ﻿Game Rồng Lửa
 
-Đang lỗi không chạy được.
+Bạn phải chạy hứng các trái cây.
