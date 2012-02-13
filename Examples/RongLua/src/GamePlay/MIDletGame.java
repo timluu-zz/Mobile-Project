@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package GamePlay;
 
 import ClassFrame.Resource;
@@ -16,25 +15,26 @@ import javax.microedition.midlet.MIDlet;
  *
  * @author QuyetNM1
  */
-public class MIDletGame extends MIDlet{
+public class MIDletGame extends MIDlet {
+
     static CanvasGame canvas;
+
     public MIDletGame() {
-        canvas = new CanvasGame(this);
-        //startApp();
     }
 
     public void startApp() {
-        Display.getDisplay(this).setCurrent(canvas);      
+        canvas = new CanvasGame(this);
+        Display.getDisplay(this).setCurrent(canvas);
     }
 
     public void pauseApp() {
-           
     }
 
     public void destroyApp(boolean unconditional) {
         notifyDestroyed();
         exit();
     }
+
     public void exit() {
         //gamePlay.freeComponents();
         //canvas.getResource().getSound(Resource.SOUND_MUSIC).release();
