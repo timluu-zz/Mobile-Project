@@ -177,8 +177,8 @@ public class CavernsOfFire extends StdGame {
          * Cave parameters. Some considerations: * * For amplitudes
          * 9-14,lavalevel=3..4 = moderate, lavalevel=7 = hard * For amplitudes
          * <9, lavalevel 3..4 = hard * for amplitudes >14, lavalevel 7 =
-         * moderate...hard, more is * probably too tight. * 
-		*
+         * moderate...hard, more is * probably too tight. *
+         *
          */
         double scrollxf = 1;
         double scrollyf = 1;
