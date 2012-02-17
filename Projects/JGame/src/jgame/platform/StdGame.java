@@ -18,20 +18,21 @@ import jgame.*;
  * called (i.e. call super.doFrame() if you choose to override doFrame). The
  * game will automatically start in the "Title" gamestate when it finds that it
  * isn't in this state in the first call to doFrame(). You can also set the
- * "Title" state in initGame if you even want the first frame to be in "Title".
+ * "Title" state in initGame if you even want the first frame to be in
+ * "Title".</p>
  *
  * <p>The class uses the following state machine, using JGEngine's state machine
- * mechanism:
+ * mechanism:</p>
  *
  * <p><i>Title</i>: displays title screen. Transition to {StartLevel,StartGame}
  * when the key_startgame is pressed. Before the transition, initNewGame(),
- * defineLevel(), and initNewLife() are called.
+ * defineLevel(), and initNewLife() are called.</p>
  *
  * <p><i>InGame</i>: game is playing. Transition to LifeLost when lifeLost() is
  * called from within the game. Transition to LevelDone when levelDone() is
  * called from within the game. Transition to GameOver when gameOver() is called
  * (i.e. to quit game). The gametime timer indicates how many ticks the game has
- * been running since the beginning of the level.
+ * been running since the beginning of the level.</p>
  *
  * <p>StdGame supports a set of standard game sequences, which are represented
  * as game states: StartLevel/StartGame, LevelDone, LifeLost, GameOver. These
@@ -41,32 +42,33 @@ import jgame.*;
  * seqtimer timer is set to 0 at the beginning of each sequence, and increments
  * during the sequence to indicate how many ticks the sequence has been playing.
  * The number of ticks that the sequence should take can be configured, or the
- * sequence can be skipped altogether by setting ticks to 0.
+ * sequence can be skipped altogether by setting ticks to 0.</p>
  *
  * <p><i>StartGame</i>: start game sequence is played. Transition to InGame
- * after a certain time has elapsed or the continuegame key is pressed. *
+ * after a certain time has elapsed or the continuegame key is pressed. *</p>
+ *
  * <p><i>StartLevel</i>: start level sequence is played. Transition to InGame
  * after a certain time has elapsed or the continuegame key is pressed. Is
  * always active in combination with StartGame; it's just an indication that
- * StartGame is also a start of a new level.
+ * StartGame is also a start of a new level.</p>
  *
  * <p><i>LevelDone</i>: next level sequence is played. Transition to
  * StartLevel/StartGame after a certain time has elapsed or the continuegame key
  * is pressed. Before the transition, resp. incrementLevel() and defineLevel()
- * are called.
+ * are called.</p>
  *
  * <p><i>LifeLost</i>: player has just died, a death sequence is played.
  * Transition to either GameOver or StartGame after a certain time has elapsed
  * or the continuegame key is pressed, dependent of whether there are lives
  * left. Before the transition to StartGame, decrementLives() and initNewLife
- * are called.
+ * are called.</p>
  *
  * <p><i>GameOver</i>: game over sequence is played. Transition to Title after a
- * certain time or the continuegame key is pressed.
+ * certain time or the continuegame key is pressed.</p>
  *
  * <p>Built in are also game exit (through the key_quitgame, which is Escape by
  * default), pause game (through the key_pausegame, which defaults to 'P'), and
- * program exit (key_quitprogram, default Escape).
+ * program exit (key_quitprogram, default Escape).</p>
  */
 public abstract class StdGame extends JGEngine {
 

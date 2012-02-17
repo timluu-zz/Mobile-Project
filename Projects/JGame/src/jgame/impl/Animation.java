@@ -2,7 +2,7 @@ package jgame.impl;
 
 public class Animation {
     /*
-     * settings; the public ones may be manipulated freely
+     * Settings; the public ones may be manipulated freely
      */
 
     String[] frames;
@@ -10,7 +10,7 @@ public class Animation {
     public int increment = 1;
     public boolean pingpong = false;
     /*
-     * state
+     * State
      */
     int framenr = 0;
     double phase = 0.0;

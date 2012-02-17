@@ -1,22 +1,22 @@
 package jgame.impl;
 
 /**
- * Data structure that can be used as replacement for Hashtable&lt;String&gt;
- * for fast sorted enumeration of its elements. It can get and put like a
- * Hashtable. Get uses binary search, and is a little, but not much, slower than
- * Hashtable.get. Put and remove are expensive as they require shifting the
- * array (algorithm duration is linear wrt the array size). It is possible to
- * put or remove multiple elements at a time (using a second SortedArray), which
- * is faster.
+ * <p> Data structure that can be used as replacement for
+ * Hashtable&lt;String&gt; for fast sorted enumeration of its elements. It can
+ * get and put like a Hashtable. Get uses binary search, and is a little, but
+ * not much, slower than Hashtable.get. Put and remove are expensive as they
+ * require shifting the array (algorithm duration is linear wrt the array size).
+ * It is possible to put or remove multiple elements at a time (using a second
+ * SortedArray), which is faster.</p>
  *
- * <P> Array enumeration is done by simply traversing the keys and/or values
+ * <p> Array enumeration is done by simply traversing the keys and/or values
  * array, which are filled with elements from 0 to size, exclusive. This is
  * about 10 times faster than using the Hashtable.getElements/getKeys
- * enumerators, and the elements are sorted (in ascending order).
+ * enumerators, and the elements are sorted (in ascending order).</p>
  *
  * <P> SortedArray grows automatically to accommodate the required elements. It
  * starts with given initialcapacity and grows with increments initialcapacity
- * each time the capacity is exceeded.
+ * each time the capacity is exceeded.</p>
  *
  */
 public class SortedArray {

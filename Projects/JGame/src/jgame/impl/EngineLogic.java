@@ -922,7 +922,7 @@ public class EngineLogic {
     void markRemoveObjects(String prefix, int cidmask, boolean suspended_obj) {
         obj_spec_to_remove.addElement(prefix);
         obj_spec_to_remove.addElement(new Integer(cidmask));
-        obj_spec_to_remove.addElement(new Boolean(suspended_obj));
+        obj_spec_to_remove.addElement((suspended_obj ? Boolean.TRUE : Boolean.FALSE));
     }
 
     /**
@@ -975,7 +975,7 @@ public class EngineLogic {
         //}
         // add all query results from object specs to obj_to_remove
         // don't enumerate when no elements (which is about 90% of the time)
-        if (obj_spec_to_remove.size() != 0) {
+        if (!obj_spec_to_remove.isEmpty()) {
             for (Enumeration e = obj_spec_to_remove.elements();
                     e.hasMoreElements();) {
                 String prefix = (String) e.nextElement();
@@ -2457,11 +2457,11 @@ public class EngineLogic {
 
     public double getYDist(double y1, double y2) {
         if (pf_wrapy) {
-            int pfheight = pfheight_half * 2;
-            double y1mod = moduloFloor(y1, pfheight);
-            double y2mod = moduloFloor(y2, pfheight);
+            int inPfheight = pfheight_half * 2;
+            double y1mod = moduloFloor(y1, inPfheight);
+            double y2mod = moduloFloor(y2, inPfheight);
             return Math.min(Math.abs(y1mod - y2mod),
-                    Math.abs(y1mod + pfheight - y2mod));
+                    Math.abs(y1mod + inPfheight - y2mod));
         } else {
             return Math.abs(y1 - y2);
         }

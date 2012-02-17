@@ -513,7 +513,13 @@ public abstract class JGEngine extends MIDlet implements JGEngineInterface {
         wakeup_key = key;
     }
 
+    /**
+     * Predetroy doing something.
+     */
+    public abstract void preDestroy();
+
     public void destroy() {
+        preDestroy();
         // kill game thread
         el.is_exited = true;
         if (gamethread != null) {

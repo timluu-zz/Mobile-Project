@@ -3,13 +3,6 @@ package jgame.impl;
 import java.util.Vector;
 import jgame.*;
 
-// the dependences we should get rid of
-//import java.awt.Point;
-//import java.awt.Rectangle;
-//import java.awt.Image;
-//import java.awt.Font;
-//import java.awt.Color;
-//import java.awt.Cursor;
 /**
  * Interface defining all platform-independent methods in JGEngine. It is
  * primarily used as an internal interface for JGObjects, JGTimers, etc to the
@@ -18,65 +11,6 @@ import jgame.*;
 public interface JGEngineInterface {
 
     // backend interface
-/*
-     * // XXX should not be public public void registerTimer(JGTimer timer);
-     *
-     * public boolean inGameStateNextFrame(String state);
-     *
-     * public void dbgPrint(String source,String msg);
-     *
-     *
-     * public Point getTileIndex(double x, double y);
-     *
-     * public Rectangle getTiles(Rectangle r);
-     *
-     *
-     * public boolean isXAligned(double x,double margin); public boolean
-     * isYAligned(double y,double margin);
-     *
-     * public double snapToGridX(double x, double gridsnapx); public double
-     * snapToGridY(double y, double gridsnapy);
-     *
-     * public void snapToGrid(Point p,int gridsnapx,int gridsnapy);
-     *
-     *
-     * // XXX maybe not public public double moduloXPos(double x);
-     *
-     * // XXX maybe not public public double moduloYPos(double y);
-     *
-     *
-     * public int checkBGCollision(Rectangle r);
-     *
-     * public void checkBGCollision(int tilecid,int objcid);
-     *
-     * public int checkCollision(int cidmask, JGObject obj);
-     *
-     *
-     * public int viewXOfs(); public int viewYOfs();
-     *
-     * public int viewWidth(); public int viewHeight();
-     *
-     * public int pfTileWidth(); public int pfTileHeight();
-     *
-     * public int pfWidth(); public int pfHeight();
-     *
-     * public boolean pfWrapX(); public boolean pfWrapY();
-     *
-     * public int getOffscreenMarginX(); public int getOffscreenMarginY();
-     *
-     *
-     *
-     *
-     * // XXX should not be public public void markAddObject(JGObject obj);
-     *
-     * public void removeObject(JGObject obj);
-     *
-     *
-     * // XXX should not be public public Animation getAnimation(String id);
-     *
-     *
-     * public Rectangle getImageBBox(String imgname);
-     */
     /**
      * Cursor keys for both regular and mobile keyboard.
      */
@@ -105,10 +39,10 @@ public interface JGEngineInterface {
      * The mobile Pound key, equal to '#'.
      */
     public static final int KeyPound = '#';
-    public static final int KeyBackspace = 8; /*
+    public static final int KeyBackspace = 8;
+    /*
      * is it different sometimes?
      */
-
     public static final int KeyTab = 9;
     /**
      * Keymap equivalent of mouse button.

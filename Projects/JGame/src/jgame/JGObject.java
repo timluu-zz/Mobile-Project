@@ -4,42 +4,61 @@ import jgame.impl.Animation;
 import jgame.impl.JGEngineInterface;
 
 /**
- * Superclass for game objects, override to define animated game objects. When
- * an object is created, it is automatically registered with the currently
+ * <p>Superclass for game objects, override to define animated game objects.
+ * When an object is created, it is automatically registered with the currently
  * running engine. The object will become active only after the frame ends. The
  * object is managed by the engine, which will display it and call the move and
  * hit methods when appropriate. Call remove() to remove the object. It will be
  * removed after the frame ends. Use isAlive() to see if the object has been
- * removed or not.
+ * removed or not.</p>
  *
  * <p> Each object corresponds to one image. The object's appearance can be
  * changed using setImage or any of the animation functions. If you want
  * multi-image objects, use multiple objects and co-reference them using regular
  * references or using JGEngine's getObject(). You can also define your own
- * paint() method to generate any appearance you want.
+ * paint() method to generate any appearance you want.</p>
  *
  * <p> Objects have a pointer to the engine by which they are managed (eng).
  * This can be used to call the various useful methods in the engine.
  * Alternatively, the objects can be made inner classes of your JGEngine class,
- * so that they have direct access to all JGEngine methods. * <p> The object
- * remembers some of the state of the previous frame (in particular the previous
- * position and bounding boxes), so that corrective action can be taken after
- * something special happened (such as bumping into a wall). * <P> Objects have
- * a direction and speed built in. After their move() method finishes, their x
- * and y position are incremented with the given speed/direction. Speed may be
- * used as absolute value (leave the direction at 1), or as a value relative to
- * the direction (the movement is speed*dir). The object speed is automatically
- * multiplied by the game speed (which has default 1.0).
+ * so that they have direct access to all JGEngine methods.</p>
  *
- * <P> Objects can be suspended, which may be useful for having them sleep until
+ * <p> The object remembers some of the state of the previous frame (in
+ * particular the previous position and bounding boxes), so that corrective
+ * action can be taken after something special happened (such as bumping into a
+ * wall). </p>
+ *
+ * <p> Objects have a direction and speed built in. After their move() method
+ * finishes, their x and y position are incremented with the given
+ * speed/direction. Speed may be used as absolute value (leave the direction at
+ * 1), or as a value relative to the direction (the movement is speed*dir). The
+ * object speed is automatically multiplied by the game speed (which has default
+ * 1.0).</p>
+ *
+ * <p> Objects can be suspended, which may be useful for having them sleep until
  * they come into view. When suspended, they are invisible, and their move, hit,
  * and paint methods are not called. Also, they will not expire. They can still
  * be counted by countObjects and removed by removeObjects, if you choose to do
  * so. By default, objects resume operation when they enter the view. This can
  * be disabled by means of the resume_in_view setting. An object that has
  * suspend_off_view enabled will be suspended immediately at creation when it is
- * off view.
+ * off view.</p>
  *
+ * <pre>
+ * For JGame most things on the screen will be JGObjects. For example the "Hill" is defined as:
+ * By making everything a JGObject you get all the methods of JGObjects (which are very useful). Some of the most useful for you are:
+ *  <code>
+ *  public class Hill extends JGObject      
+ *      setImage(String imgName) // Set the image used to display this object (image must be loaded from the media table first!). But that is usually done during initialization of the engine
+ *      setPos(int x, int y) // Sets the location of this object on the screen.
+ *      move() // Update the position of the mortar round in here using setPos
+ *      getBBox() // Used to find the bounding box of the Object. Good for positioning the tank's turret in the middle of the tank
+ *      hit(JGObject obj) // This method is called when another JGObject hits you. So, when the tank gets hit, you probably want to play the explosion sound here.
+ *      remove() // Remove this object from the screen
+ *      paint() // override this to paint yourself. You'll use this to paint the turret on the screen (it's just a 4 pixel wide line)
+ *      isAlive() // This method will tell you if an object is still alive or not. To use this, just make sure you remove the mortarrounds if they hit something. A removed mortarRound will return "false" from isAlive(). Thus, when both mortarrounds are not alive, you can move on to the next state.
+ * </code>
+ * </pre>
  */
 public class JGObject {
 
@@ -166,10 +185,19 @@ public class JGObject {
      */
     String name;
     /**
-     * Number of move() steps before object removes itself, -1 (default) is
-     * never; -2 means expire when off-playfield, -3 means expire when off-view,
-     * -4 means suspend when off-view, -5 means suspend when off-view and expire
-     * when off-playfield. See also the expire_ and suspend_ constants.
+     * Number of move() steps before object removes itself
+     *
+     * <br/> -1 (default) is never;
+     *
+     * <br/> -2 means expire when off-playfield,
+     *
+     * <br/> -3 means expire when off-view,
+     *
+     * <br/> -4 means suspend when off-view,
+     *
+     * <br/> -5 means suspend when off-view and expire when off-playfield.
+     *
+     * <br/>See also the expire_ and suspend_ constants.
      */
     public double expiry = -1;
     /**
