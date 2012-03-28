@@ -23,6 +23,13 @@ import jgame.impl.JGameError;
 
 public abstract class JGEngine extends MIDlet implements JGEngineInterface {
 
+    JGPoint mousePressed;
+    JGPoint mouseReleased;
+    boolean isDoubleClick = false;
+    int mouseStatus = -1;
+    public static final int MOUSE_PRESSED = 0;
+    public static final int MOUSE_DRAGGED = 1;
+    public static final int MOUSE_RELEASE = 2;
     /*
      * === main objects ===
      */
@@ -33,6 +40,22 @@ public abstract class JGEngine extends MIDlet implements JGEngineInterface {
      * === canvas ===
      */
     JGCanvas canvas = new JGCanvas();
+
+    public JGPoint getMousePressed() {
+        return mousePressed;
+    }
+
+    public JGPoint getMouseReleased() {
+        return mouseReleased;
+    }
+
+    public int getMouseStatus() {
+        return mouseStatus;
+    }
+
+    public boolean isDoubleClick() {
+        return isDoubleClick;
+    }
 
     public void setProgressBar(double pos) {
         // XXX check out if the load screen gets updated properly if we don't
@@ -213,7 +236,16 @@ public abstract class JGEngine extends MIDlet implements JGEngineInterface {
         public void pointerPressed(int x, int y) {
             mousepos.x = (int) ((x - el.canvas_xofs) / el.x_scale_fac);
             mousepos.y = (int) ((y - el.canvas_yofs) / el.y_scale_fac);
+
+            if (mousePressed != null && mousepos.x >= mousePressed.x - 10 && mousepos.x <= mousePressed.x + 10 && mousepos.y >= mousePressed.y - 10 && mousepos.y <= mousePressed.y + 10) {
+                isDoubleClick = true;
+            } else {
+                isDoubleClick = false;
+            }
+
+            mousePressed = new JGPoint((int) ((x - el.canvas_xofs) / el.x_scale_fac), (int) ((y - el.canvas_yofs) / el.y_scale_fac));
             mousebutton[1] = true;
+            mouseStatus = MOUSE_PRESSED;
             keymap[256] = true;
             mouseinside = true;
         }
@@ -221,7 +253,9 @@ public abstract class JGEngine extends MIDlet implements JGEngineInterface {
         public void pointerReleased(int x, int y) {
             mousepos.x = (int) ((x - el.canvas_xofs) / el.x_scale_fac);
             mousepos.y = (int) ((y - el.canvas_yofs) / el.y_scale_fac);
+            mouseReleased = new JGPoint((int) ((x - el.canvas_xofs) / el.x_scale_fac), (int) ((y - el.canvas_yofs) / el.y_scale_fac));
             mousebutton[1] = false;
+            mouseStatus = MOUSE_RELEASE;
             keymap[256] = false;
             mouseinside = false;
         }
@@ -229,6 +263,7 @@ public abstract class JGEngine extends MIDlet implements JGEngineInterface {
         public void pointerDragged(int x, int y) {
             mousepos.x = (int) ((x - el.canvas_xofs) / el.x_scale_fac);
             mousepos.y = (int) ((y - el.canvas_yofs) / el.y_scale_fac);
+            mouseStatus = MOUSE_DRAGGED;
             mouseinside = true;
         }
 

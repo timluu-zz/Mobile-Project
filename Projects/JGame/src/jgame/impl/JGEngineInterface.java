@@ -610,16 +610,17 @@ public interface JGEngineInterface {
     public void dbgShowFullStackTrace(boolean enabled);
 
     /**
-     * Output messages on playfield instead of console. Default is true.
+     * <p>Output messages on playfield instead of console. Default is true.
      * Messages printed by an object are displayed close to that object.
      * Messages printed by the main program are shown at the bottom of the
-     * screen. The debug message font is used to display the messages. <p>A
-     * message that is generated in this frame is shown in the foreground colour
-     * at the appropriate source. If the source did not generate a message, the
-     * last printed message remains visible, and is shown in debug colour 1. If
-     * an object prints a message, and then dies, the message will remain for a
-     * period of time after the object is gone. These messages are shown in
-     * debug colour 2.
+     * screen. The debug message font is used to display the messages. </p>
+     *
+     * <p>A message that is generated in this frame is shown in the foreground
+     * colour at the appropriate source. If the source did not generate a
+     * message, the last printed message remains visible, and is shown in debug
+     * colour 1. If an object prints a message, and then dies, the message will
+     * remain for a period of time after the object is gone. These messages are
+     * shown in debug colour 2.</p>
      */
     public void dbgShowMessagesInPf(boolean enabled);
 
@@ -720,23 +721,34 @@ public interface JGEngineInterface {
             JGColor fgcolor, JGColor bgcolor, JGFont msgfont);
 
     /**
-     * Set scaling preferences for translating the virtual playfield to the
-     * actual display. You can only call this in initCanvas(). You can set the
-     * allowed aspect ratio and the crop margin here. Aspect ratio is defined as
-     * the ratio (actual_tile_width / actual_tile_height) / (virtual_tile_width
-     * / virtual_tile_height). So, if the tile size of the scaled display is
-     * (3,2) pixels, and the original was (4,4) pixels, the aspect ratio is 1.5.
-     * Default values for min_aspect_ratio and max_aspect_ratio are resp 0.75
-     * and 1.333. Setting both to 1.0 means you always get a square aspect
-     * ratio. <P> Crop margin can be used if you wish to allow the scaling
-     * algorithm to take just a few pixels off your playfield in order to make a
-     * wider tile size fit. The tile size is always integer, so even a best-fit
-     * scaled tile size may leave an unused border around the playfield, which
-     * may be undesirable for small screens. Cropping just a few pixels off the
-     * playfield may be just enough to make the tiles 1 pixel larger. Setting a
-     * crop to a value greater than zero means you allow the playfield to fall
-     * off the canvas for the amount of actual pixels specified, in order to
-     * make a larger tile size fit. Default crop margin is 0. <P>
+     * <P>Set scaling preferences for translating the virtual playfield to the
+     * actual display. You can only call this in initCanvas().
+     *
+     * You can set the allowed aspect ratio and the crop margin here. Aspect
+     * ratio is defined as the ratio
+     *
+     * (actual_tile_width / actual_tile_height) / (virtual_tile_width /
+     * virtual_tile_height).
+     *
+     * So, if the tile size of the scaled display is (3,2) pixels, and the
+     * original was (4,4) pixels, the aspect ratio is 1.5. Default values for
+     * min_aspect_ratio and max_aspect_ratio are resp 0.75 and 1.333. Setting
+     * both to 1.0 means you always get a square aspect ratio. </P>
+     *
+     * <P> Crop margin can be used if you wish to allow the scaling algorithm to
+     * take just a few pixels off your playfield in order to make a wider tile
+     * size fit.
+     *
+     * The tile size is always integer, so even a best-fit scaled tile size may
+     * leave an unused border around the playfield, which may be undesirable for
+     * small screens.
+     *
+     * Cropping just a few pixels off the playfield may be just enough to make
+     * the tiles 1 pixel larger. Setting a crop to a value greater than zero
+     * means you allow the playfield to fall off the canvas for the amount of
+     * actual pixels specified, in order to make a larger tile size fit.
+     *
+     * Default crop margin is 0. </P>
      *
      * @param min_aspect_ratio minimum width:height ratio allowed
      * @param max_aspect_ratio maximum width:height ratio allowed
